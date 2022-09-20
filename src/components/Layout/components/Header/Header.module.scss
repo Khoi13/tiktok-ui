@@ -21,9 +21,13 @@
     padding-right: 20px;
 }
 
-.seacrh {
-    position: relative;
+.search,
+.search-result {
     width: 361px;
+}
+
+.search {
+    position: relative;
     height: var(--search-height);
     padding-left: 16px;
     display: flex;
@@ -59,6 +63,15 @@
     }
 }
 
+.search-title {
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    line-height: 20px;
+    color: #16182380;
+    font-weight: 600;
+}
+
 .clear,
 .loading {
     position: absolute;
@@ -77,13 +90,19 @@
     border-radius: 0 var(--search-border-radius) var(--search-border-radius) 0;
     font-size: 1.8rem;
     color: #16182357;
+    cursor: pointer;
 
     &:hover {
-        cursor: pointer;
         background-color: #16182308;
     }
 
     &:active {
         background-color: #1618230f;
+    }
+}
+
+.action {
+    .login-btn {
+        margin-left: 16px;
     }
 }
