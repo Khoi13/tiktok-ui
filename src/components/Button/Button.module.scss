@@ -2,7 +2,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 100px;
+    min-width: 80px;
     min-height: 36px;
     padding: 6px 8px;
     border-radius: 4px;
@@ -26,6 +26,13 @@
 .icon + .title,
 .title + .icon {
     margin-left: 8px;
+}
+
+.icon {
+    display: flex;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
 }
 
 // Button type
