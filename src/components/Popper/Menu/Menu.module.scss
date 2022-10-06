@@ -21,6 +21,10 @@
     color: #161823;
     line-height: 1.8rem;
 
+    &.separate {
+        border-top: 1px solid #1618231f;
+    }
+
     &:hover {
         background-color: #16182308;
     }
