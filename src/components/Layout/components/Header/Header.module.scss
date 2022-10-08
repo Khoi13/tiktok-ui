@@ -122,12 +122,16 @@
 .more-btn {
     cursor: pointer;
     font-size: 1.8rem;
-    padding: 3px 11.75px 1px;
     background-color: transparent;
     margin-left: 16px;
+    padding: 0 4px;
+    height: 2rem;
 }
 
 .action-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
     margin-left: 16px;
     font-size: 2.2rem;
     color: #161823;
@@ -139,6 +143,22 @@
 
 .message-icon {
     padding-top: 3px;
+}
+
+.badge {
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    padding: 0 6px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 10px;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'ProximaNova', sans-serif;
+    min-width: 2rem;
 }
 
 .user-avatar {

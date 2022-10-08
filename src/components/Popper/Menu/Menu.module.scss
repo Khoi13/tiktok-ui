@@ -13,15 +13,22 @@
 
 // Menu items
 .menu-item {
+    --height: 42px;
     width: 100%;
     justify-content: flex-start;
     border-radius: 0;
-    padding: 11px 16px;
+    padding: 11px 15px 11px 13px;
     font-weight: 600;
     color: #161823;
     line-height: 1.8rem;
+    height: var(--height);
+
+    span {
+        margin-right: -2px;
+    }
 
     &.separate {
+        height: calc(var(--height) + 1px);
         border-top: 1px solid #1618231f;
     }
 

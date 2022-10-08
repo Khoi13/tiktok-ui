@@ -1,18 +1,7 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faPlus,
-    faEllipsisVertical,
-    faEarthAsia,
-    faCoins,
-    faCamera,
-    faGear,
-    faCircleQuestion,
-    faKeyboard,
-    faUser,
-    faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 
@@ -24,13 +13,28 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
-import { MessagesIcon, PaperPlaneIcon, SpinnerIcon, CircleMarkIcon, MagnifyingGlassIcon } from '~/components/icons';
+import {
+    MessagesIcon as InboxIcon,
+    PaperPlaneIcon,
+    SpinnerIcon,
+    CircleMarkIcon,
+    MagnifyingGlassIcon,
+    EllipsisVerticalIcon,
+    UserIcon,
+    CoinIcon,
+    CameraIcon,
+    GearIcon,
+    LanguageIcon,
+    CircleQuestionIcon,
+    KeyboardIcon,
+    SignOutIcon,
+} from '~/components/icons';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        icon: <LanguageIcon />,
         title: 'English',
         children: {
             title: 'Language',
@@ -49,12 +53,12 @@ const MENU_ITEMS = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <CircleQuestionIcon />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <KeyboardIcon />,
         title: 'Keyboard shortcuts',
     },
 ];
@@ -63,7 +67,6 @@ function Header() {
     const [searchResult, setSearchResult] = useState([]);
 
     const currentUser = true;
-
     useEffect(() => {
         setTimeout(() => {
             setSearchResult([]);
@@ -83,28 +86,28 @@ function Header() {
 
     const userMenu = [
         {
-            icon: <FontAwesomeIcon icon={faUser} />,
+            icon: <UserIcon />,
             title: 'View profile',
             to: '/@abc',
         },
         {
-            icon: <FontAwesomeIcon icon={faCoins} />,
+            icon: <CoinIcon />,
             title: 'Get coins',
             to: '/coin',
         },
         {
-            icon: <FontAwesomeIcon icon={faCamera} />,
-            title: 'LIVE studio',
+            icon: <CameraIcon />,
+            title: 'LIVE Studio',
             to: '/studio',
         },
         {
-            icon: <FontAwesomeIcon icon={faGear} />,
+            icon: <GearIcon />,
             title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEMS,
         {
-            icon: <FontAwesomeIcon icon={faSignOut} />,
+            icon: <SignOutIcon />,
             title: 'Log out',
             to: '/logout',
             separate: true,
@@ -163,7 +166,8 @@ function Header() {
                             </Tippy>
                             <Tippy placement="bottom" delay={[0, 0]} content="Inbox">
                                 <button className={cx('action-btn')}>
-                                    <MessagesIcon />
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
@@ -190,7 +194,7 @@ function Header() {
                             />
                         ) : (
                             <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                                <EllipsisVerticalIcon />
                             </button>
                         )}
                     </Menu>
