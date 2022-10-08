@@ -13,7 +13,7 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
 
@@ -52,6 +52,8 @@ function Search() {
 
     return (
         <HeadlessTippy
+            interactive
+            visible={showResult && searchResult.length > 0}
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
@@ -62,8 +64,6 @@ function Search() {
                     </PopperWrapper>
                 </div>
             )}
-            visible={showResult && searchResult.length > 0}
-            interactive
             onClickOutside={handleHideResult}
         >
             <div className={cx('search')}>
@@ -72,13 +72,9 @@ function Search() {
                     value={searchValue}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) => {
-                        setSearchValue(e.target.value);
-                    }}
+                    onChange={(e) => setSearchValue(e.target.value)}
                     onInput={(e) => validateOnlySpaceInput(e.target)}
-                    onFocus={() => {
-                        setShowResult(true);
-                    }}
+                    onFocus={() => setShowResult(true)}
                 />
 
                 {!!searchValue && !loading && (
