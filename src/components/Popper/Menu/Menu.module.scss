@@ -11,6 +11,10 @@
     padding-bottom: 8px;
 }
 
+.menu-body {
+    overflow-y: auto;
+}
+
 // Menu items
 .menu-item {
     --height: 42px;
@@ -42,6 +46,7 @@
     margin-top: -8px;
     position: relative;
     height: 50px;
+    flex-shrink: 0;
 }
 
 .back-btn {

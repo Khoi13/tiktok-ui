@@ -6,10 +6,11 @@
 
 .container {
     width: var(--default-layout-width, 1150px);
-    display: flex;
+    margin-top: var(--default-layout-header-height);
     padding-left: var(--default-layout-horizontal-spacer-left);
+    display: flex;
 }
 
 .content {
-    flex: 1px;
+    flex: 1;
 }

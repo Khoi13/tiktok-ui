@@ -3,6 +3,12 @@
     width: 361px;
 }
 
+.search-result-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
 .search {
     position: relative;
     height: var(--search-height);
