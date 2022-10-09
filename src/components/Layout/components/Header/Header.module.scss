@@ -22,6 +22,10 @@
     padding-right: var(--default-layout-horizontal-spacer-right);
 }
 
+.logo-link {
+    display: flex;
+}
+
 // Actions
 .action {
     display: flex;
@@ -73,7 +77,7 @@
     line-height: 2rem;
     font-size: 1.4rem;
     font-weight: 600;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     min-width: 2rem;
 }
 

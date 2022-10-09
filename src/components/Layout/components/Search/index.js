@@ -52,8 +52,12 @@ function Search() {
         setShowResult(false);
     };
 
-    const validateOnlySpaceInput = (input) => {
-        if (/^\s/.test(input.value)) input.value = '';
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
     };
 
     return (
@@ -78,8 +82,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
-                    onInput={(e) => validateOnlySpaceInput(e.target)}
+                    onChange={handleChange}
                     onFocus={() => setShowResult(true)}
                 />
 
@@ -90,7 +93,13 @@ function Search() {
                 )}
 
                 {loading && <SpinnerIcon className={cx('loading')} />}
-                <button className={cx('search-btn')}>
+                <button
+                    className={cx('search-btn')}
+                    onMouseDown={(e) => {
+                        inputRef.current.blur();
+                        e.preventDefault();
+                    }}
+                >
                     <MagnifyingGlassIcon />
                 </button>
             </div>

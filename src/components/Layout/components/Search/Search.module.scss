@@ -13,7 +13,7 @@
     border-radius: var(--search-border-radius);
 
     input {
-        font-family: 'ProximaNova', sans-serif;
+        font-family: var(--font-family);
         flex: 1;
         height: 100%;
         font-size: 1.6rem;
@@ -79,6 +79,7 @@
 }
 
 .search-btn {
+    position: relative;
     width: var(--search-bottom-width);
     height: 100%;
     padding-top: 4px;
@@ -90,6 +91,14 @@
 
     &:hover {
         background-color: #16182308;
+
+        width: calc(var(--search-bottom-width) + var(--search-border));
+        height: var(--search-height);
+
+        padding-right: calc(2px + var(--search-border));
+
+        top: calc(0px - var(--search-border));
+        right: calc(0px - var(--search-border));
     }
 
     &:active {
