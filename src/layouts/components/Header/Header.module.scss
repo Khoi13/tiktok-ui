@@ -2,7 +2,7 @@
     --search-border-radius: 92px;
     --search-height: 46px;
     --search-top-spacer: 9px;
-    --search-bottom-width: 50px;
+    --search-button-width: 50px;
     --search-border: 1.5px;
 
     position: fixed;
@@ -44,6 +44,11 @@
     .upload-btn {
         width: 113.63px;
         padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .upload-btn span:first-child {
+        width: 20px;
     }
 }
 

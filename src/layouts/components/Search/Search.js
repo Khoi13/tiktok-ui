@@ -14,15 +14,15 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debounced = useDebounce(searchValue, 700);
+    const debouncedValue = useDebounce(searchValue, 700);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -30,7 +30,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debounced);
+            const result = await searchServices.search(debouncedValue);
 
             setSearchResult(result);
 
@@ -39,8 +39,8 @@ function Search() {
 
         fetchApi();
 
-        setLoading(true);
-    }, [debounced]);
+        // setLoading(true);
+    }, [debouncedValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -73,7 +73,7 @@ function Search() {
                             <div className={cx('search-result-wrapper')}>
                                 <h4 className={cx('search-title')}>Accounts</h4>
                                 {searchResult.map((result) => (
-                                    <AccountItem key={result.id} data={result} />
+                                    <AccountItem key={result.id} data={result} onClick={handleHideResult} />
                                 ))}
                             </div>
                         </PopperWrapper>
@@ -82,14 +82,16 @@ function Search() {
                 onClickOutside={handleHideResult}
             >
                 <div className={cx('search')}>
-                    <input
-                        ref={inputRef}
-                        value={searchValue}
-                        placeholder="Search accounts and videos"
-                        spellCheck={false}
-                        onChange={handleChange}
-                        onFocus={() => setShowResult(true)}
-                    />
+                    <div className={cx('input-wrapper')}>
+                        <input
+                            ref={inputRef}
+                            value={searchValue}
+                            placeholder="Search accounts and videos"
+                            spellCheck={false}
+                            onChange={handleChange}
+                            onFocus={() => setShowResult(true)}
+                        />
+                    </div>
 
                     {!!searchValue && !loading && (
                         <button className={cx('clear')} onClick={handleClear}>
