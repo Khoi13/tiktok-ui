@@ -50,6 +50,10 @@
     .upload-btn span:first-child {
         width: 20px;
     }
+
+    .upload-btn span:nth-child(2) {
+        opacity: 0.9;
+    }
 }
 
 .more-btn {
