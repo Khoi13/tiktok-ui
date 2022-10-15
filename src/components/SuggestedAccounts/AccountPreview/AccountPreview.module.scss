@@ -1,0 +1,72 @@
+.wrapper {
+    padding: 20px;
+    margin-top: -8px;
+    width: 320px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.follow-btn {
+    min-width: 106px;
+    min-height: unset;
+    padding: 8.5px 16px;
+    font-size: 15.5px;
+}
+
+.body {
+    margin-top: 12px;
+}
+
+.nickname {
+    font-size: 1.8rem;
+    font-family: SofiaPro;
+    line-height: 2.2rem;
+    height: 22px;
+}
+
+.check {
+    font-size: 1.4rem;
+    color: #20d5ec;
+    margin-left: 4px;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    display: inline-block;
+}
+
+.analytics {
+    display: block;
+    margin-top: 8px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-size: 1.7rem;
+}
+
+.value {
+    font-weight: 700;
+    margin-right: 6px;
+    display: inline-block;
+}
+
+.label {
+    color: rgba(22, 24, 35, 0.75);
+    display: inline-block;
+
+    &:not(:last-of-type) {
+        margin-right: 12px;
+    }
+}
